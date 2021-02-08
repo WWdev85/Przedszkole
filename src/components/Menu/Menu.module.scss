@@ -1,0 +1,41 @@
+@import '../../scss/virables';
+
+.menu{
+    max-width: 1280px;
+    margin: 0 auto;
+
+    &__title{
+        text-align: center;
+        text-transform: uppercase;
+        color: $primaryColor;
+        font-family: $primaryFont;
+        font-size: 40px;
+    }
+
+    &__list{
+        list-style: none;
+        text-align: center;
+       
+
+    }
+
+    &__list-item{
+        margin-top: 60px;
+        background-color: $primaryColor;
+        max-width: 500px;
+        margin: 60px auto;
+    }
+
+    &__name{
+        font-family: $secondaryFont;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 20px;
+        line-height: 50px;
+        color:white;
+        width: 100%;
+        display: block;
+        
+    }
+}

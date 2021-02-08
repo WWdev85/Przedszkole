@@ -1,0 +1,13 @@
+@import '../../scss/virables';
+
+.header{
+    max-width: 1280px;
+    margin: 0 auto 50px;
+    text-align: center;
+    margin-top: 20PX;
+    
+    &__logo{
+        text-align: center;
+        max-width: 500px;
+    }
+}
