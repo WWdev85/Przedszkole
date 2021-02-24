@@ -1,0 +1,71 @@
+@import '../../../scss/_variables';
+
+.aboutUs{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .subtitle{
+        flex-basis: 100%;
+    }
+    .title{
+        flex-basis: 100%;
+    }
+
+  
+
+
+    .aboutUs__content{
+        flex-basis: 100%;
+        text-align: center;
+
+        @media(min-width: 1024px){
+            height: 300px;
+            flex-basis: 50%;
+        }
+
+        .aboutUs__text{
+            font-size: 1.5rem;
+            line-height: 20px;
+            text-align: justify;
+          
+        }
+
+        .aboutUs__link{
+            display: inline-block;
+           
+            text-align: center;
+            margin: 50px auto;
+
+            font-family: $secondaryFont;
+            font-size: 2rem;
+            text-decoration: none;
+            color: white;
+
+            border-radius: 20px;
+
+            background-color: $secondColor;
+            padding: 8px 15px;
+
+            cursor: pointer;
+        }
+    }
+
+    .aboutUs__image{
+        flex-basis: 100%;
+        height: 300px;
+
+        background-image: url('../../../../public/images/girl.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        @media(min-width: 1024px){
+            transform: translateY(-50px);
+            flex-basis: 50%;
+        }
+    }
+}

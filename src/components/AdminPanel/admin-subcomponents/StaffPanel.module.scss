@@ -1,0 +1,67 @@
+@import '../../../scss/_variables';
+
+.staff{
+    width: 100%;
+
+    text-align: center;
+
+    .staff__button{
+        padding: 5px 12px;
+        margin-bottom: 20px;
+    }
+    .staff__form{
+        border: $secondColor 2px solid;
+        border-radius: 5px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        
+         
+        .staff__number{
+            justify-self: flex-start;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .staff__input-wrapper{
+
+            margin-bottom: 10px;
+            flex-basis: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @media(min-width: 1024px){
+               flex-basis: 20%;     
+            }
+            .staff__input{
+                flex-basis: 90%;
+                border-radius: 5px;
+            }
+            .staff__label{
+                flex-basis: 90%;
+            }
+            .staff__select{
+                flex-basis: 90%;
+                border-radius: 5px;
+                .staff__option{
+                    width: 100px;
+                    font-size: 15px;
+                }
+            }
+            .staff__input-file{
+                flex-basis: 90%;
+                border: none;
+            }
+        }
+
+        .staff__button{
+            padding: 5px 12px;
+        }
+    }
+}

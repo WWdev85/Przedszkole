@@ -1,0 +1,150 @@
+@import '../../../scss/_variables';
+
+.slider{
+    height: 600px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    
+
+    .slider__button{
+        position: absolute;
+        display: none;
+
+        width: 50px;
+        height: 50px;
+        padding: 20px;
+        background-color: black;
+        opacity: 0.3;
+        border-radius: 50%;
+        top: 50%;
+        z-index: 0;
+        transform: translateY(-50%);
+
+        cursor: pointer;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        @media(min-width: 1024px){
+            display: block;
+        }
+
+        &:nth-of-type(1){
+            background-image: url('../../../../public/images/arrowLeft.svg');
+            left: 5%;
+        }
+
+        &:nth-of-type(2){
+            background-image: url('../../../../public/images/arrowRight.svg');
+            right: 5%;
+        }
+    }
+    .slider__slide{
+        
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+    
+
+        z-index: -1;
+
+    
+        background-image: url('../../../../public/images/grubasek.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:cover;
+
+        transition: opacity 0.5s, transform 7s;
+
+        &--active{
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        @media(min-width : 700px){
+            background-position: top;
+            background-image: url('../../../../public/images/grubasek.jpg')
+        }
+
+        &:nth-of-type(2){
+            background-image: url('../../../../public/images/zabawa.jpg');
+            @media(min-width : 700px){
+                background-image: url('../../../../public/images/zabawa.jpg')
+            }
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, white);
+        }
+        
+        .slider__slide-content{
+            position: absolute;
+
+            top: 50%;
+            left: 60%;
+
+            
+            transform: translate(-50%, -50%);
+
+            .slider__slide-title{
+                font-family: $thirdFont;
+                font-size: 4rem;
+              
+                margin-bottom: 40px;
+                text-align: left;
+                font-weight: 400;
+            
+
+                opacity: 0;
+                transform: translateX(-50%);
+
+                transition: transform 2s;
+
+                @media(min-width: 1024px){
+                    font-size: 7rem;
+                    line-height: 75px;
+                }
+            }
+
+            .slider__slide-text{
+                font-size: 2rem;
+                color: black;
+                transform: translateX(50%);
+                transition: transform 2s;
+
+                @media(min-width: 1024px){
+                    font-size: 3rem;
+                }
+            }
+            
+            &--active{
+
+                .slider__slide-title{
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+
+                .slider__slide-text{
+                    transform: translateX(0);
+                }
+
+            }
+            
+           
+        }
+    }
+}

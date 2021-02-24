@@ -1,0 +1,63 @@
+@import '../../../scss/_variables';
+
+.user{
+    width: 100%;
+
+    text-align: center;
+
+    .user__button{
+        padding: 5px 12px;
+        margin-bottom: 20px;
+    }
+    .user__form{
+        border: $secondColor 2px solid;
+        border-radius: 5px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        
+         
+        .user__number{
+            justify-self: flex-start;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .user__input-wrapper{
+
+            margin-bottom: 10px;
+            flex-basis: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @media(min-width: 1024px){
+               flex-basis: 20%;     
+            }
+            .user__input{
+                flex-basis: 90%;
+                border-radius: 5px;
+            }
+            .user__label{
+                flex-basis: 90%;
+            }
+            .user__select{
+                flex-basis: 90%;
+                border-radius: 5px;
+                .user__option{
+                    width: 100px;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .user__button{
+            padding: 5px 12px;
+        }
+    }
+}

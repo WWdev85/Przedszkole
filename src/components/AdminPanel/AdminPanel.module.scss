@@ -1,0 +1,21 @@
+@import '../../scss/variables';
+
+.adminPanel{
+    width: 100%;
+    font-size: 1.4rem;
+    font-family: $primaryFont;
+    padding: 0 20px;
+
+    .adminPanel__title{
+        margin: 10px 0;
+    }
+
+    .adminPanel__subtitle{
+        margin: 20px 0;
+        text-align: left;
+
+        cursor:pointer;
+    }
+    
+}
+    

@@ -1,0 +1,44 @@
+@import '../../../scss/_variables';
+
+.adress{
+    width: 100%;
+    .adress__form{
+        border: $secondColor 2px solid;
+        border-radius: 5px;
+        padding: 20px 10px;
+
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .adress__input-wrapper{
+
+            margin-bottom: 10px;
+            flex-basis: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @media(min-width: 1024px){
+               flex-basis: 27%;     
+            }
+            .adress__input{
+                flex-basis: 90%;
+                border-radius: 5px;
+
+              
+            }
+
+            .adress__label{
+                flex-basis: 90%;
+            }
+        }
+
+        .adress__button{
+            padding: 5px 12px;
+
+            margin: 0 10px;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+@import '../../../scss/_variables';
+
+.advertisements{
+    width: 100%;
+
+    text-align: center;
+
+    .advertisements__button{
+        padding: 5px 12px;
+        margin-bottom: 20px;
+    }
+    .advertisements__form{
+        border: $secondColor 2px solid;
+        border-radius: 5px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        
+         
+        .advertisements__number{
+            justify-self: flex-start;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .advertisements__input-wrapper{
+
+            margin-bottom: 10px;
+            flex-basis: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+
+            @media(min-width: 1024px){
+
+               
+                &:nth-of-type(1){
+                    flex-basis: 10%;
+                }
+                &:nth-of-type(2){
+                    flex-basis: 15%;
+                }
+                &:nth-of-type(3){
+                    flex-basis: 30%;
+                }
+                &:nth-of-type(4){
+                    flex-basis: 15%;
+                }
+            }
+            .advertisements__text{
+                flex-basis: 90%;
+                border-radius: 5px;
+            }
+            .advertisements__input{
+                flex-basis: 90%;
+                border-radius: 5px;
+            }
+            .advertisements__textarea{
+                flex-basis: 90%;
+                border-radius: 5px;
+            }
+            .advertisements__label{
+                flex-basis: 90%;
+            }
+            .advertisements__input-file{
+                flex-basis: 90%;
+                border: none;
+            }
+        }
+
+        .advertisements__button{
+            padding: 5px 12px;
+        }
+    }
+}

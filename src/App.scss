@@ -1,5 +1,109 @@
+@import '../src/scss/variables';
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html{
+    font-size:  10px;
+
+    @media(min-width:1024){
+        font-size: 13px;
+    }
+}
+
+
+h1{
+    line-height: 60px;
+
+    font-family: $secondaryFont;
+    font-size: 3rem;
+
+    color: $firstColor;
+    
+    text-align: center;
+}
+
+h2{
+    line-height: 40px;
+
+    font-family: $secondaryFont;
+    font-size: 2rem;
+
+    color: $secondColor;
+    
+    text-align: center;
+
+}
+
+input{
+    line-height: 28px; 
+    padding: 0 10px;
+
+    font-size: 1.5rem;
+    border: $secondColor 2px solid;
+    border-radius: 25px;
+
+    &:focus{
+        
+        border-radius: 25px;
+        outline: none;
+    }
+}
+
+label{
+    line-height: 28px; 
+    padding: 0 10px;
+    
+    font-family: $secondaryFont;
+    font-size: 1.5rem;
+    color: $secondColor;
+}
+
+select{
+    height: 30px; 
+    padding: 0 10px;
+    font-size: 1.5rem;
+    border: 2px solid  $secondColor;
+    border-radius: 25px;
+    outline: none;
+}
+
+textarea{
+    font-size: 1.5rem;
+    border: $secondColor 2px solid;
+    border-radius: 25px;
+}
+
+option{
+    
+    font-size: 1.5rem;
+
+    &:checked{
+        background-color: blue;
+    }
+}
+
+button{
+    align-self: center;
+
+    font-size: 2rem;
+    font-family: $secondaryFont;
+    color: white;
+
+    border:none;
+    border-radius: 17px;
+    background-color: $secondColor;
+
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+    outline: none;
+
+
+    &:hover{
+        background-color: darken($secondColor, 10%);
+    }
 }

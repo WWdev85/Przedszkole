@@ -1,0 +1,136 @@
+@import '../../scss/_variables';
+
+.footer{
+    background-color: $firstColor;
+    font-size: 1.5rem;
+    font-family: $primaryFont;
+    
+
+    .footer__wrapper{
+        max-width: 1280px;
+        padding: 20px 20px;
+        margin: 0 auto;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .footer__section{
+            flex-basis: 100%;
+            margin-bottom: 40px;
+
+            @media(min-width: 570px){
+                flex-basis: 40%;
+            }
+            @media(min-width: 1024px){
+                flex-basis: 30%;
+            }
+
+
+            &:nth-of-type(3){
+                flex-basis: 100%;
+                height: 50px;
+                margin-bottom: 0;
+                background-image: url('../../../public/images/przedszkole_logo_white.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+
+                @media(min-width: 1024px){
+                    flex-basis: 30%;
+                    align-self: center;
+                
+                }
+            }
+
+            .footer__title{
+                text-align: left;
+                color: white;
+                margin-bottom: 20px;
+            }
+
+            .footer__info{
+                .footer__contact{
+                    flex-basis: 100%;
+                    padding: 10px 0;;
+    
+                    display: flex;
+              
+                    text-decoration: none;
+                    cursor: pointer;
+    
+                    @media(min-width: 600px){
+                        flex-basis: 50%;
+                    }
+                    @media(min-width: 850px){
+                        flex-basis: auto;
+                        
+                    }
+        
+        
+                    &:nth-of-type(1){
+                        .footer__icon{
+                            background-image: url("../../../public/images/phone__white.svg");
+                        }    
+                    }
+                    &:nth-of-type(2){
+                        .footer__icon{
+                            background-image: url("../../../public/images/mail__white.svg");
+                        }  
+                    }
+                    &:nth-of-type(3){
+                        .footer__icon{
+                            background-image: url("../../../public/images/location__white.svg");
+                        }  
+                    }
+                    &:nth-of-type(4){
+                        .footer__icon{
+                            background-image: url("../../../public/images/facebook__white.svg");
+                        }  
+                    }
+        
+        
+                    .footer__icon{
+                        width: 15px;
+                        height: 15px;
+                        
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+        
+                    .footer__text{
+                        margin-left: 10px;
+                        color: white;
+                    }
+                }
+            }
+
+            .footer__list{
+                list-style: none;
+
+                font-family: $primaryFont;
+                font-size: 1.5rem;
+
+                .footer__listItem{
+                    padding: 10px 0;
+                    .footer__link{
+                        color: white;
+
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+      
+    }
+    .footer__copyright{
+        text-align: center;
+        width: 100%;
+        line-height: 60px;
+        margin: 0 auto;
+
+        background-color: black;
+        color: white;
+    }
+}

@@ -1,0 +1,67 @@
+@import '../../../scss/_variables';
+
+.group{
+    width: 100%;
+
+    text-align: center;
+
+    .group__button{
+        padding: 5px 12px;
+        margin-bottom: 20px;
+    }
+    .group__form{
+        border: $secondColor 2px solid;
+        border-radius: 5px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        
+         
+        .group__number{
+            justify-self: flex-start;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .group__input-wrapper{
+
+            margin-bottom: 10px;
+            flex-basis: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @media(min-width: 1024px){
+               flex-basis: 25%;     
+            }
+            .group__input{
+                flex-basis: 90%;
+                border-radius: 5px;
+            }
+            .group__label{
+                flex-basis: 90%;
+            }
+            .group__select{
+                flex-basis: 90%;
+                border-radius: 5px;
+                .group__option{
+                    width: 100px;
+                    font-size: 15px;
+                }
+            }
+            .group__input-file{
+                flex-basis: 90%;
+                border: none;
+            }
+        }
+
+        .group__button{
+            padding: 5px 12px;
+        }
+    }
+}

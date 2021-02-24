@@ -1,0 +1,31 @@
+@import '../../scss/_variables';
+
+.main{
+    font-family: $primaryFont;
+    .subtitle{
+        margin-top: 50px;
+        font-family: $primaryFont;
+        font-size: 2rem;
+        color: $secondColor;
+        flex-basis: 100%;
+
+        &::before{
+            content:"a";
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+            background-color: $secondColor;
+        
+        }
+    }
+
+    .title{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: $firstColor;
+        text-align: left;
+        line-height: 25px;
+        flex-basis: 100%;
+    }
+}
