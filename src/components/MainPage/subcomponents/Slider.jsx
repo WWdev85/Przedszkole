@@ -52,7 +52,7 @@ export const Slider = () => {
                 <div className={style('slide')} ref={slide1}>ASsASAs
                     <div className={style('slide-content')} ref={content1}>
                         <h2 className={style('slide-title')} >Przedszkole uczy</h2>
-                        <p className={style('slide-text')}>Lorems sad  sadasd sad sd sad asd asfageg et asf asfad</p>
+                        <p className={style('slide-text')}>Dbamy o wszechstronny, harmonijny rozwój dziecka</p>
                     </div>
                 </div>
                 <div className={style('slide')}ref={slide2}>
