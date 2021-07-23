@@ -25,8 +25,6 @@ export const AdminPanel = () => {
     const [isAdressActive, setIsAdressActive] = useState(false);
     
 
-    console.log('AdminPanelRender');
-
     const menuSign = isMenuActive? "-" : "+" ;
     const userSign = isUserActive? "-" : "+" ;
     const advertisementSign = isAdvertisementActive? "-" : "+" ;

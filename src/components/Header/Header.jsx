@@ -13,7 +13,7 @@ const style = bemCssModules(HeaderStyles);
 export const Header = () => {
 
   
-    const { adress , loggedUser,  setLoggedUser , loginModal, setLoginModal} = useContext(StoreContext);
+    const { adress , groups, loggedUser,  setLoggedUser , loginModal, setLoginModal} = useContext(StoreContext);
     
     const menu = useRef();
     const logo = useRef();
@@ -36,6 +36,12 @@ export const Header = () => {
     const {phone, email, location, link, facebook} = adress;
     
     const role = loggedUser? loggedUser.role : "other";
+    const groupId = loggedUser ? loggedUser.group : null;
+
+    const group = (groupId !== null) ? (groups.find(group => group.id === groupId)) : null;
+    const groupName = group? group.name : null;
+
+
 
     const phoneTo = `tel:${phone}`;
     const mailTo = `mailto:${email}`;
@@ -92,7 +98,7 @@ export const Header = () => {
         button.classList.toggle('header__menu-button-active');
         navigation.classList.toggle('navigation-active');
     }
-     console.log('headerRender');
+    
     return (
          <header className = {style()} ref={info}>
              <div className = {style('infoWrapper')}>
@@ -124,7 +130,7 @@ export const Header = () => {
                     <button className={style('login-button')} onClick={handleLoginModal}>{loginStatus}</button>
                     <Router> 
                         {role ==="administrator" ? <Link className={style('link')} to={`/panel-administratora`}>Panel Administracyjny</Link> : null}
-                        {role ==="teacher" ? <Link className={style('link')} to={`/panel-nauczyciela`}>Panel Nauczyciela</Link> : null}
+                        {(role ==="staffMember") && (loggedUser.group !== null) ? <Link className={style('link')} to={`/panel-nauczyciela/${groupName}`}>Panel Nauczyciela</Link> : null}
                     </Router> 
                     {login}
                 </div>

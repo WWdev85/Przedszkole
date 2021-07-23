@@ -7,6 +7,7 @@ import {groupsReducer} from './groups.reducer';
 import {usersReducer} from './users.reducer';
 import {menuReducer} from './menu.reducer';
 import {advertisementsReducer} from './advertisements.reducer';
+import {groupAdvertisementsReducer} from './groupAdvertisements.reducer';
 export const StoreContext = createContext(null);
 
 
@@ -16,6 +17,7 @@ const StoreProvider = ({children}) => {
     const [staffMembers, dispatchStaffMembers] = useReducer(staffReducer,null);
     const [groups, dispatchGroups] = useReducer(groupsReducer,null);
     const [advertisements, dispatchAdvertisements] = useReducer(advertisementsReducer,null);
+    const [groupAdvertisements, dispatchGroupAdvertisements] = useReducer(groupAdvertisementsReducer,null);
     const [ users, dispatchUsers ] = useReducer(usersReducer, []);
     const [ menu, dispatchMenu ] = useReducer(menuReducer, null);
     const [loginModal, setLoginModal] = useState("disabled");
@@ -33,9 +35,26 @@ const StoreProvider = ({children}) => {
     useEffect( async() => {
         if(loggedUser && loggedUser.role === "administrator"){
             const newUsers = await request.get('/user/staffMember');
-            dispatchUsers({type: 'FETCH', data: newUsers.data});
-        }   
+            dispatchUsers({type: 'FETCH', data: newUsers.data});  
+        }
+            const groupId = loggedUser ? loggedUser.group : null;
+            setGroupAdvertisements(groupId);
+             
     },[loggedUser])
+
+    const setGroupAdvertisements = async(groupId) =>{
+        const newGroupAdvertisment = await request.get(`/advertisment/${groupId}`);
+        const sortedGroupAdvertisements = newGroupAdvertisment.data.sort((a, b) => {
+          
+        if(a.createdAt > b.createdAt)
+            return -1;
+        if(a.createdAt <= b.createdAt)   
+            return 1; 
+         });
+        dispatchGroupAdvertisements({type: 'FETCH', data: sortedGroupAdvertisements});   
+    }
+
+    
    
     const fetchData = async () => {
         const newAdress = await request.get('/adress');
@@ -48,23 +67,42 @@ const StoreProvider = ({children}) => {
         dispatchGroups({type: 'FETCH', data: newGroups.data});
 
         const newAdvertisment = await request.get('/advertisment/root');
+
         const sortedAdvertisements = newAdvertisment.data.sort((a, b) => {
             if(a.createdAt > b.createdAt)
                 return -1;
             if(a.createdAt <= b.createdAt)   
                 return 1; 
         });
+
         dispatchAdvertisements({type: 'FETCH', data: sortedAdvertisements});
+
+        
 
         const newUsers = await request.get('/user/staffMember');
         dispatchUsers({type: 'FETCH', data: newUsers.data});
 
         const newMenu = await request.get('/meal');
-        dispatchMenu({type: 'FETCH', data: newMenu.data});
+        const sortedMenu = newMenu.data.sort((a, b) => {
+            const yearA = a.date.slice(6,10);
+            const monthA = a.date.slice(3,5);
+            const dayA = a.date.slice(0,2);
+            const yearB = b.date.slice(6,10);
+            const monthB = b.date.slice(3,5);
+            const dayB = b.date.slice(0,2);
+
+            const dateA = new Date(yearA, monthA, dayA);
+            const dateB = new Date(yearB, monthB, dayB);
+            
+            if(dateA > dateB)
+                return -1;
+            if(dateA <= dateB)   
+                return 1; 
+        });
+        dispatchMenu({type: 'FETCH', data: sortedMenu});
     }
 
-   
-    console.log("storeProviderRender");
+
 
     return(
         <StoreContext.Provider value={{
@@ -84,6 +122,11 @@ const StoreProvider = ({children}) => {
             dispatchUsers,
             menu,
             dispatchMenu,
+            groupAdvertisements, 
+            dispatchGroupAdvertisements,
+            setGroupAdvertisements,
+
+            
         }}>
             {children}
         </StoreContext.Provider>

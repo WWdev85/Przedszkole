@@ -49,7 +49,7 @@ export const Slider = () => {
         <div className={style()}>
                 <button className={style('button')} onClick={handleChangeSlide}></button>
                 <button className={style('button')} onClick={handleChangeSlide}></button>
-                <div className={style('slide')} ref={slide1}>ASsASAs
+                <div className={style('slide')} ref={slide1}>
                     <div className={style('slide-content')} ref={content1}>
                         <h2 className={style('slide-title')} >Przedszkole uczy</h2>
                         <p className={style('slide-text')}>Dbamy o wszechstronny, harmonijny rozwój dziecka</p>

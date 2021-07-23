@@ -107,3 +107,31 @@ button{
         background-color: darken($secondColor, 10%);
     }
 }
+
+section{
+    margin-bottom: 30px;
+}
+
+.pages{
+    font-size: 20px;
+    cursor: pointer;
+    color: $secondColor;
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    text-align: right;
+    justify-content: center;
+
+    .page, .pageText{
+        cursor: pointer;
+        font-family: $secondaryFont;
+        margin-left: 15px;
+
+       
+    }
+
+    .page--active{
+        color: $firstColor;
+    }
+
+}

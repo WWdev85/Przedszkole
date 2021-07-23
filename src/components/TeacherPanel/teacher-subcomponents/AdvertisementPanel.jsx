@@ -10,17 +10,25 @@ const style = bemCssModules(AdvertisementPanelStyles);
 
 export const AdvertisementPanel = ({active}) => {
 
-    const { advertisements, dispatchAdvertisements } = useContext(StoreContext);
+    const { groupAdvertisements, dispatchGroupAdvertisements, loggedUser, setGroupAdvertisements } = useContext(StoreContext);
 
     const [changes , setChanges] = useState(null);
 
+    const group = loggedUser.group;
+    
+    useEffect(() => {
+        setGroupAdvertisements(group);
+    },[])
+    
 
-    const news = advertisements.map(adv => 
-        <AdvertisementForm advertisement={adv}  key ={advertisements.indexOf(adv)} index ={advertisements.indexOf(adv)}  changes={setChanges}/>
+
+
+    const news = groupAdvertisements.map(adv => 
+        <AdvertisementForm advertisement={adv}  key ={groupAdvertisements.indexOf(adv)} index ={groupAdvertisements.indexOf(adv)}  changes={setChanges}/>
         );
 
     const handleSendData = () => {
-        dispatchAdvertisements({type: 'SAVE'});
+        dispatchGroupAdvertisements({type: 'SAVE'});
         setChanges(null);
         active(false);
     }
@@ -29,7 +37,7 @@ export const AdvertisementPanel = ({active}) => {
 
         <div className={style('')}>
             {changes? <button className={style('button')} onClick={handleSendData}>Zapisz zmiany</button> : null}
-            <AdvertisementForm advertisement={{id:"", content:"", createdAt:""}} changes={setChanges}/>
+            <AdvertisementForm advertisement={{id:"", content:"", createdAt:"", group: group}} changes={setChanges}/>
             {news}
         </div>     
     )
